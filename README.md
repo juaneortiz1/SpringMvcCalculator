@@ -23,10 +23,11 @@ Represents the calculator's state including the current result, input, and opera
 
 Handles HTTP requests, performs calculations based on user input, and manages sessions for multiple users.
 
-![img_4.png](src%2Fmain%2Fresources%2Fimg%2Fimg_4.png)![img.png](img.png)
+![img_4.png](src%2Fmain%2Fresources%2Fimg%2Fimg_4.png)![img.png](src/main/resources/img/img6.png)
 
 ## Deployment
-
+![img_2.png](src/main/resources/img/img_25.png)
+![img_1.png](src/main/resources/img/img_15.png)
 ### Prerequisites
 
 - JDK 11 or higher
