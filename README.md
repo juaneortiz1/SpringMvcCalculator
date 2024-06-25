@@ -24,17 +24,19 @@ Handles HTTP requests, performs calculations based on user input, and manages se
 ![img_4.png](src%2Fmain%2Fresources%2Fimg%2Fimg_4.png)![img.png](src/main/resources/img/img6.png)
 
 ## Deployment
+
 ![img_2.png](src/main/resources/img/img_25.png)
 ![img_1.png](src/main/resources/img/img_15.png)
+
+The application is deployed on an Amazon EC2 instance, taking advantage of its scalability 
+and reliability. The deployment involves packaging the application into a JAR file and transferring it to the EC2 instance. It runs on Java 11, ensuring compatibility and performance.
+
 ### Prerequisites
 
 - JDK 11 or higher
 - Maven
 - Amazon EC2 instance (for deployment)
 
-### Deployment 
-
-Amazon EC2
 
 ## Architecture
 
@@ -54,9 +56,6 @@ The `CalculatorService` encapsulates the core business logic of arithmetic opera
 #### Session Management
 Spring Session is leveraged to manage user sessions securely. This ensures that each user interaction with the calculator is isolated and maintains its own calculation state.
 
-### Deployment Architecture
-The application is deployed on an Amazon EC2 instance, taking advantage of its scalability and reliability. The deployment involves packaging the application into a JAR file and transferring it to the EC2 instance. It runs on Java 11, ensuring compatibility and performance.
-
 ### Technologies Used
 - **Java**: The primary programming language for backend development.
 - **Spring Boot**: Provides a robust framework for building web applications, including dependency management and configuration.
@@ -70,11 +69,6 @@ The application is deployed on an Amazon EC2 instance, taking advantage of its s
    ```bash
    mvn clean package
    ```
-
-**Deploy to Amazon EC2**
-
-    - Launch an Amazon EC2 instance with Java installed.
-    - Copy the generated `target/calculator-springboot.jar` to your EC2 instance.
 
 **Use the Calculator**
 
