@@ -1,20 +1,38 @@
 package edu.escuelaing.arsw.springMVC.model;
 
-import org.springframework.stereotype.Service;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-
-@Service
 public class Calculator {
-    public double evaluate(String expression) {
-        ScriptEngineManager mgr = new ScriptEngineManager();
-        ScriptEngine engine = mgr.getEngineByName("JavaScript");
-        try {
-            return Double.parseDouble(engine.eval(expression).toString());
-        } catch (ScriptException e) {
-            throw new IllegalArgumentException("Invalid expression");
-        }
+    private double result;
+    private String currentInput;
+    private String operator;
+
+    public Calculator() {
+        result = 0;
+        currentInput = "";
+        operator = "";
+    }
+
+    public double getResult() {
+        return result;
+    }
+
+    public void setResult(double result) {
+        this.result = result;
+    }
+
+    public String getCurrentInput() {
+        return currentInput;
+    }
+
+    public void setCurrentInput(String currentInput) {
+        this.currentInput = currentInput;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 }
