@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title>Calculator</title>
+    <script>
+        function appendValue(value) {
+            var inputField = document.getElementById("inputField");
+            inputField.value += value;
+            calculate();
+        }
+
+        function clearField() {
+            document.getElementById("inputField").value = "";
+        }
+
+        function calculate() {
+            var inputField = document.getElementById("inputField");
+            try {
+                var result = eval(inputField.value); // Evaluar la expresión usando eval() (cuidado con eval() en aplicaciones en producción)
+                inputField.value = result;
+            } catch (e) {
+                // Si hay un error de sintaxis o evaluación, mantener el valor actual
+            }
+        }
+    </script>
 </head>
 <body>
 <h1>Calculator</h1>
-<form action="#" th:action="@{/calculate}" method="post">
-    <input type="number" name="a" placeholder="Enter first number" step="any" required>
-    <input type="number" name="b" placeholder="Enter second number" step="any" required>
-    <select name="operation">
-        <option value="add">Add</option>
-        <option value="subtract">Subtract</option>
-        <option value="multiply">Multiply</option>
-        <option value="divide">Divide</option>
-        <option value="allClear">All Clear</option>
-    </select>
-    <button type="submit">Calculate</button>
-</form>
-<p th:if="${result != null}">Result: <span th:text="${result}"></span></p>
+<input type="text" id="inputField" placeholder="0" oninput="calculate()">
+<br>
+<button type="button" onclick="appendValue('1')">1</button>
+<button type="button" onclick="appendValue('2')">2</button>
+<button type="button" onclick="appendValue('3')">3</button>
+<button type="button" onclick="appendValue('+')">+</button>
+<br>
+<button type="button" onclick="appendValue('4')">4</button>
+<button type="button" onclick="appendValue('5')">5</button>
+<button type="button" onclick="appendValue('6')">6</button>
+<button type="button" onclick="appendValue('-')">-</button>
+<br>
+<button type="button" onclick="appendValue('7')">7</button>
+<button type="button" onclick="appendValue('8')">8</button>
+<button type="button" onclick="appendValue('9')">9</button>
+<button type="button" onclick="appendValue('*')">*</button>
+<br>
+<button type="button" onclick="appendValue('0')">0</button>
+<button type="button" onclick="appendValue('.')">.</button>
+<button type="button" onclick="appendValue('/')">/</button>
+<br>
+<button type="button" onclick="clearField()">AC</button>
 </body>
 </html>

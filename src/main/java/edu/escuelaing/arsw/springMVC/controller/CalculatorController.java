@@ -1,6 +1,6 @@
 package edu.escuelaing.arsw.springMVC.controller;
 
-import edu.escuelaing.arsw.springMVC.service.CalculatorService;
+import edu.escuelaing.arsw.springMVC.model.Calculator;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,46 +14,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CalculatorController {
     @Autowired
-    private CalculatorService calculatorService;
-
-    @GetMapping("/")
-    public String index(HttpSession session, Model model) {
-        Double result = (Double) session.getAttribute("result");
-        if (result == null) {
-            result = 0.0;
-        }
-        model.addAttribute("result", result);
-        return "index";
-    }
+    private Calculator calculator;
 
     @PostMapping("/calculate")
     public String calculate(
-            @RequestParam("a") double a,
-            @RequestParam("b") double b,
-            @RequestParam("operation") String operation,
+            @RequestParam("input") String input,
             HttpSession session,
             Model model) {
 
-        double result = 0;
-        switch (operation) {
-            case "add":
-                result = calculatorService.add(a, b);
-                break;
-            case "subtract":
-                result = calculatorService.subtract(a, b);
-                break;
-            case "multiply":
-                result = calculatorService.multiply(a, b);
-                break;
-            case "divide":
-                result = calculatorService.divide(a, b);
-                break;
-            case "allClear":
-                result = calculatorService.allClear();
-                break;
+        String expression = (String) session.getAttribute("expression");
+        if (expression == null) {
+            expression = "";
         }
-        session.setAttribute("result", result);
-        model.addAttribute("result", result);
+
+        expression += input;
+
+        try {
+            double result = calculator.evaluate(expression);
+            session.setAttribute("expression", expression);
+            session.setAttribute("result", Double.toString(result));
+            model.addAttribute("result", result);
+        } catch (IllegalArgumentException e) {
+            session.setAttribute("expression", expression);
+            model.addAttribute("error", e.getMessage());
+        }
+
         return "index";
     }
 }

@@ -1,25 +1,20 @@
 package edu.escuelaing.arsw.springMVC.model;
 
+import org.springframework.stereotype.Service;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+@Service
 public class Calculator {
-    public double add(double a, double b) {
-        return a + b;
-    }
-
-    public double substraction(double a, double b) {
-        return a - b;
-    }
-
-    public double product(double a, double b) {
-        return a * b;
-    }
-
-    public double divide(double a, double b) {
-        if (b == 0) throw new IllegalArgumentException("Cannot divide by zero");
-        return a / b;
-    }
-
-    public double allClear() {
-        return 0.0;
+    public double evaluate(String expression) {
+        ScriptEngineManager mgr = new ScriptEngineManager();
+        ScriptEngine engine = mgr.getEngineByName("JavaScript");
+        try {
+            return Double.parseDouble(engine.eval(expression).toString());
+        } catch (ScriptException e) {
+            throw new IllegalArgumentException("Invalid expression");
+        }
     }
 }
-
