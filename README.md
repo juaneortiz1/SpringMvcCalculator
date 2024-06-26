@@ -21,7 +21,8 @@ Represents the calculator's state including the current result, input, and opera
 
 Handles HTTP requests, performs calculations based on user input, and manages sessions for multiple users.
 
-![img_3.png](src%2Fmain%2Fresources%2Fimg%2Fimg_3.png)
+![image](https://github.com/juaneortiz1/SpringMvcCalculator/assets/97971732/4b2c48ee-16c9-4516-96f4-dcd022ac9062)
+
 
 ## Deployment
 
