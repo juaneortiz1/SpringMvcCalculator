@@ -41,6 +41,7 @@ and reliability. The deployment involves packaging the application into a JAR fi
 ## Architecture
 
 The calculator application follows a typical web application architecture using the Spring Boot framework, ensuring scalability, maintainability, and ease of deployment. Here’s a breakdown of its key components:
+![image](https://github.com/juaneortiz1/SpringMvcCalculator/assets/97971732/fbeba40c-59ab-45a8-8b4a-ae3bfa3f5b2f)
 
 ### Frontend
 The frontend utilizes Thymeleaf templates for rendering dynamic HTML content. This allows for a responsive user interface that interacts seamlessly with the backend services.
