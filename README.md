@@ -15,7 +15,7 @@ This project is a simple calculator web application built using Maven and Spring
 
 Represents the calculator's state including the current result, input, and operator. It handles basic arithmetic operations.
 
-![img_4.png](src%2Fmain%2Fresources%2Fimg%2Fimg_4.png)![img.png](src/main/resources/img/img6.png)
+![img_4.png](src%2Fmain%2Fresources%2Fimg%2Fimg_4.png)
 
 ## CalculatorController
 
