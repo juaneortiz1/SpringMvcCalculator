@@ -50,8 +50,8 @@ The frontend utilizes Thymeleaf templates for rendering dynamic HTML content. Th
 #### Controller Layer
 The `CalculatorController` handles incoming HTTP requests, processes user inputs, and coordinates with the service layer to perform arithmetic operations. It manages sessions to maintain state across multiple user interactions.
 
-#### Service Layer
-The `CalculatorService` encapsulates the core business logic of arithmetic operations (addition, subtraction, multiplication, division). It ensures that calculations are performed accurately and efficiently.
+#### Model Layer
+The `Calculator` encapsulates the core business logic of arithmetic operations (addition, subtraction, multiplication, division). It ensures that calculations are performed accurately and efficiently.
 
 #### Session Management
 Spring Session is leveraged to manage user sessions securely. This ensures that each user interaction with the calculator is isolated and maintains its own calculation state.
